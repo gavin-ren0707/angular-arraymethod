@@ -85,11 +85,21 @@ export class AppComponent implements OnInit {
       return item.money > 300;
     })
     console.log('0221', ans2);
-    var reduceEmpty = this.people.reduce(function (accumulator, currentValue, currentIndex, array) {
+    var reduceEmpty = this.people.reduce(function (accumulator, currentValue, currentIndex,array) {
+         return accumulator;
     });
     console.log('0329', reduceEmpty);
 
-
+    this.people.pop();
+    var reducePlus= this.people.reduce(function (accumulator, currentValue, currentIndex,array) {
+         console.log('987',accumulator,currentValue,currentIndex);
+         return accumulator + currentValue.money;
+    },0);
+    console.log('9453',reducePlus);
+    var reduceBestOne = this.people.reduce(function (accumulator, currentValue, currentIndex,array) {
+         return Math.max(accumulator,currentValue.money);
+    },0);
+    console.log('比誰大', reduceBestOne);
 
 
   }
