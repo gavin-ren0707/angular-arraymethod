@@ -24,10 +24,22 @@ export class AppComponent implements OnInit {
       money: Infinity
     },
   ];
+  public minCard ={
+      name:'小明',
+      value:0
+  }
+  public groupA = ['小明', '杰倫', '阿姨'];
+  public groupB = ['老媽', '老爸'];
+  public groupAll = [...this.groupA,...this.groupB];
+  public groupCon = this.groupA.concat(this.groupB);
+  public doms = document.querySelectorAll('p');
   constructor() {
 
   }
   ngOnInit() {
+    console.log('groupAll', this.groupAll);
+    console.log('groupCon', this.groupCon);
+    console.log('doms',this.doms);
     var foreachLoop = this.people.forEach(function (item, index, array) {
       console.log('999', item, index, array);
     })
@@ -100,7 +112,15 @@ export class AppComponent implements OnInit {
          return Math.max(accumulator,currentValue.money);
     },0);
     console.log('比誰大', reduceBestOne);
-
+    function updateCashCard(minCard,...money){
+        let arg = [...arguments];
+        let sum = arg.reduce(function(accumulator,currentValue){
+             return accumulator + currentValue;   
+        },0)
+        console.log('我有'+sum+'元');
+    }
+    //updateCashCard(0);
+    updateCashCard(10,50,100,50,5,1,1,1,500);
 
   }
 
