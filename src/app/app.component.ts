@@ -113,14 +113,14 @@ export class AppComponent implements OnInit {
     },0);
     console.log('比誰大', reduceBestOne);
     function updateCashCard(minCard,...money){
-        let arg = [...arguments];
-        let sum = arg.reduce(function(accumulator,currentValue){
-             return accumulator + currentValue;   
-        },0)
-        console.log('我有'+sum+'元');
+        console.log('錢',money);
+        minCard.value = money.reduce(function(accumulator,currentValue){
+            return accumulator+currentValue;
+        },minCard.value)
+        console.log(`${minCard.name}的卡現在有多少${minCard.value}`);
     }
-    //updateCashCard(0);
-    updateCashCard(10,50,100,50,5,1,1,1,500);
+    let money1=[10,50,50,60,100,500];
+    updateCashCard(this.minCard,...money1);
 
   }
 
