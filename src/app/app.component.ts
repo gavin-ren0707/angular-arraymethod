@@ -24,6 +24,20 @@ export class AppComponent implements OnInit {
       money: Infinity
     },
   ];
+  public people1 = [
+    {
+      name: '小明',
+      friends: 2
+    },
+    {
+      name: '阿姨',
+      friends: 999
+    },
+    {
+      name: '杰倫',
+      friends: 0
+    }
+  ]
   public minCard ={
       name:'小明',
       value:0
